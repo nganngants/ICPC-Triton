@@ -1,2 +1,3 @@
 # -ICPC-Triton
-Triton's ICPC training code 
+Here are Triton's ICPC training codes
+
