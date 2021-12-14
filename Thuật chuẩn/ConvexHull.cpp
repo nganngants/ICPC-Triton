@@ -1,4 +1,9 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <windows.h>
+#include <cstdlib>
+#include <conio.h>
+#include <vector>
+#include <algorithm>
 
 #define ll long long
 #define fi first
@@ -75,38 +80,14 @@ void convexhull()
     up.clear(); down.clear();
 }
 
-void upd ()
-{
-    vector <point> b = a;
-    a.clear();
-    for (auto i : b)
-    {
-        bool ok = true;
-        for (int j=0;j<res.size()-1;++j)
-            if (i == res[j] || ori(res[j],i,res[j+1]) == 0)
-        {
-            ok = false;
-            break;
-        }
-        if (ok) a.pb(i);
-    }
-    b.clear();
-}
-
 int main()
 {
     ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
 //    freopen(file".inp","r",stdin);
 //    freopen(file".out","w",stdout);
     enter();
-    while (a.size() > 2)
-    {
-        convexhull();
-//        cout << res.size() << '\n';
-//        for (auto i : res) cout << i.x << " " << i.y << '\n';
-        upd();
-        cnt++;
-    }
-    cout << cnt;
+    convexhull();
+    res.pop_back();
+    for (auto it : res) cout << it.x << " " << it.y << '\n';
     return 0;
 }
